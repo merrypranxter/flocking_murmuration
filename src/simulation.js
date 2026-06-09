@@ -209,9 +209,12 @@ export class Simulation {
 
         // Analysis pass (throttled)
         if (this._frameCount % this._analysisInterval === 0) {
-            this.analysis.compute(this.getVelocityTexture());
+            this.analysis.compute(this.getVelocityTexture(), this.getPositionTexture(), this._time);
         }
     }
+
+    /** Public accessor for current simulation time */
+    getTime() { return this._time; }
 
     _rebuildSpatialHash() {
         const rt = this.gpgpu.getCurrentRenderTarget(this._posVar);

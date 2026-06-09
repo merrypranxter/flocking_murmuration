@@ -53,8 +53,9 @@ for (let i = 0; i < starCount; i++) {
     starPos[i * 3 + 2] = r * Math.cos(phi);
 }
 starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-const starMat  = new THREE.PointsMaterial({ color: 0xffffff, size: 0.02, transparent: true, opacity: 0.4 });
-scene.add(new THREE.Points(starGeo, starMat));
+const starMat   = new THREE.PointsMaterial({ color: 0xffffff, size: 0.02, transparent: true, opacity: 0.4 });
+const starField = new THREE.Points(starGeo, starMat); // kept in scene permanently
+scene.add(starField);
 
 // --- Load config and bootstrap simulation ---
 const SPECIES_AGENT_MAP = {
@@ -80,9 +81,15 @@ async function loadSpecies(species) {
     const path = SPECIES_AGENT_MAP[species] ?? SPECIES_AGENT_MAP['starling'];
     const config = await fetch(path).then(r => r.json());
 
-    // Dispose previous simulation/renderer
-    if (simulation)   { simulation.dispose();    scene.remove(...scene.children.filter(c => c.isMesh || c.isPoints || c.isLine)); }
-    if (boidRenderer) { boidRenderer.dispose();  }
+    // Dispose previous simulation/renderer; preserve the permanent star field
+    if (simulation)   { simulation.dispose(); }
+    if (boidRenderer) {
+        boidRenderer.dispose();
+        // Remove only boid-related objects; leave starField
+        scene.children
+            .filter(c => c !== starField && (c.isMesh || c.isPoints || c.isLineSegments))
+            .forEach(c => scene.remove(c));
+    }
 
     simulation   = new Simulation(glRenderer, config);
     boidRenderer = new Renderer(glRenderer, scene, camera, config.agentCount, simulation.texSize);
@@ -93,6 +100,9 @@ async function loadSpecies(species) {
         gui       = result.gui;
         guiParams = result.params;
     }
+
+    // Expose loadSpecies for the HTML species bar (registered after module boots)
+    window.__loadSpecies = loadSpecies;
 
     boidRenderer.setMode(guiParams?.renderMode ?? 'points');
 }
@@ -122,8 +132,7 @@ function animate() {
         boidRenderer.update(
             simulation.getPositionTexture(),
             simulation.getVelocityTexture(),
-            simulation._time
-        );
+            simulation.getTime()        );
 
         // LOD
         const centroid = new THREE.Vector3(0, 0, 0); // approximation; ideally computed from positions

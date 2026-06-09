@@ -139,7 +139,7 @@ export class Renderer {
                 )},
                 u_time:           { value: 0.0 },
                 u_densityScale:   { value: 0.8 },
-                u_lightDir:       { value: 1.0 },
+        u_lightDir:       { value: new THREE.Vector2(1.0, 0.0) },
                 u_flockColor:     { value: new THREE.Color(0.5, 0.6, 0.8) },
                 u_edgeSharpen:    { value: 1.5 },
             },
