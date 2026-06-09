@@ -1,0 +1,43 @@
+{
+  "species": "jellyfish",
+  "agentCount": 16384,
+  "description": "Jellyfish bloom (smack) — 15k agents, pulsation-driven propulsion, depth preference, passive buoyancy, ambient current coupling.",
+  "reference": "Costello & Colin 1994; Hamner et al. 1994; Uye & Shimauchi 2005",
+
+  "separationRadius": 0.060,
+  "alignRadius":      0.000,
+  "cohesionRadius":   0.200,
+  "separationWeight": 1.0,
+  "alignWeight":      0.0,
+  "cohesionWeight":   0.3,
+  "maxSpeed":         0.15,
+  "minSpeed":         0.00,
+  "maxForce":         0.8,
+  "boundaryRadius":   0.80,
+  "boundaryWeight":   2.0,
+
+  "speciesUniforms": {
+    "u_pulseFreq":       0.7,
+    "u_jetStrength":     1.2,
+    "u_contractionPhase": 0.30,
+    "u_buoyancy":        0.05,
+    "u_dragCoeff":       0.4,
+    "u_currentDir":      0.5,
+    "u_currentSpeed":    0.02,
+    "u_preferredDepth":  -0.30,
+    "u_depthWeight":     0.5
+  },
+
+  "renderDefaults": {
+    "mode":          "points",
+    "pointSize":     6.0,
+    "opacity":       0.55,
+    "color":         [0.5, 0.75, 0.9],
+    "trailLength":   0.02,
+    "pulseSizeMin":  4.0,
+    "pulseSizeMax":  10.0,
+    "background":    "underwater"
+  },
+
+  "notes": "Jellyfish locomotion is nearly purely pulsation-driven. Alignment forces are negligible (set to 0); the smack is held by weak cohesion and depth preference at the thermocline. Individual pulse phases are offset, producing asynchronous visual ripple. Bell size in render shader oscillates with pulse phase."
+}

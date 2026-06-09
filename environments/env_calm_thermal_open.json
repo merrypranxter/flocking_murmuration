@@ -1,0 +1,37 @@
+{
+  "id": "calm_thermal_open",
+  "name": "Calm Evening — Thermal Columns, Open Sky",
+  "description": "Calm late-afternoon conditions: weak thermal updrafts, gentle horizontal drift, no wind shear. Ideal for tight murmuration formation.",
+
+  "wind": {
+    "enabled": false,
+    "baseVelocity": [0.0, 0.0, 0.0]
+  },
+
+  "thermals": [
+    {
+      "center":   [0.1, -0.5, 0.05],
+      "radius":   0.15,
+      "strength": 0.08,
+      "decay":    0.3,
+      "enabled":  true
+    },
+    {
+      "center":   [-0.15, -0.5, -0.1],
+      "radius":   0.12,
+      "strength": 0.06,
+      "decay":    0.4,
+      "enabled":  true
+    }
+  ],
+
+  "boundary": {
+    "type":   "sphere",
+    "radius": 0.90
+  },
+
+  "skyColor": [0.05, 0.06, 0.12],
+  "horizonColor": [0.15, 0.08, 0.05],
+
+  "notes": "Thermal columns provide gentle uplift that real murmurations exploit before roosting. They create slight vertical structure in the flock — birds channel into the thermals and are pushed upward, concentrating the flock vertically."
+}

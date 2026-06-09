@@ -1,0 +1,28 @@
+{
+  "id": "peregrine_dive",
+  "name": "Peregrine Falcon Dive",
+  "description": "Vertical stoop attack from altitude. Fastest animal dive (~320 km/h). Produces vertical flock-split: the flock cleaves on a vertical axis as the falcon stoops through, then reforms beneath.",
+  "shader": "shaders/update_predator_peregrine.frag",
+
+  "maxSpeed":      2.5,
+  "maxForce":      8.0,
+  "captureRadius": 0.04,
+  "stoopDragCoeff": 0.1,
+
+  "phases": [
+    { "id": 0, "name": "climb",   "description": "Climb to altitude above flock" },
+    { "id": 1, "name": "stoop",   "description": "Wing-fold terminal velocity dive" },
+    { "id": 2, "name": "pull-up", "description": "Wings open, hard upward turn" }
+  ],
+
+  "initialPosition": [0.0, 0.6, 0.0],
+
+  "preyResponse": {
+    "panicRadius":     0.20,
+    "panicWeight":     5.0,
+    "verticalSplit":   true,
+    "description": "The fastest flock response is vertical compression then vertical split. The flock flattens (2D sheet) as the stoop begins, then splits vertically as the falcon passes through."
+  },
+
+  "notes": "Peregrine falcons (Falco peregrinus) are the fastest animals in a dive, reaching 389 km/h. They target the outermost birds of a murmuration and rely on the confusion effect being overcome by sheer speed. The stoop creates a vertical 'corridor of emptiness' that reforms within 1-2 seconds."
+}

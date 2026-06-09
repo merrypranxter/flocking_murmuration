@@ -1,0 +1,37 @@
+{
+  "species": "bat",
+  "agentCount": 32768,
+  "description": "Bat emergence — 30k agents, CCW vortex column exit from cave, echolocation repulsion rings, three-phase: queue / vortex / disperse.",
+  "reference": "Betke et al. 2008 (tracking 20M bats); Gillam et al. 2007",
+
+  "separationRadius": 0.030,
+  "alignRadius":      0.080,
+  "cohesionRadius":   0.100,
+  "separationWeight": 2.5,
+  "alignWeight":      0.9,
+  "cohesionWeight":   0.7,
+  "maxSpeed":         0.45,
+  "minSpeed":         0.15,
+  "maxForce":         2.0,
+  "boundaryRadius":   0.90,
+  "boundaryWeight":   2.0,
+
+  "speciesUniforms": {
+    "u_emergencePhase": 1.0,
+    "u_caveExit":       [0.0, -0.5, 0.0],
+    "u_vortexStrength": 1.5,
+    "u_vortexRadius":   0.05,
+    "u_dispersalWeight": 0.4
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   2.5,
+    "opacity":     0.75,
+    "color":       [0.2, 0.18, 0.25],
+    "trailLength": 0.05,
+    "background":  "dusk"
+  },
+
+  "notes": "Mexican free-tailed bats emerge at dusk and spiral upward in a counter-clockwise column, maintaining echolocation-based personal space bubbles (radius ~30cm). Phase 0=pre-emergence queue; 1=vortex column; 2=foraging dispersal."
+}

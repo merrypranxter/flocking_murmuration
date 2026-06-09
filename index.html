@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flocking_murmuration — GPU Boid Simulation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #020306;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: #ccc;
+    }
+
+    #canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      display: block;
+    }
+
+    #hud {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      pointer-events: none;
+    }
+
+    #info {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      pointer-events: none;
+    }
+
+    #info a {
+      color: rgba(150,180,255,0.6);
+      text-decoration: none;
+    }
+
+    #species-label {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* Quick-switch species bar */
+    #species-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    #species-bar button {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.6);
+      padding: 4px 10px;
+      font: 11px 'Courier New', monospace;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    #species-bar button:hover,
+    #species-bar button.active {
+      background: rgba(100,160,255,0.2);
+      color: rgba(200,220,255,0.95);
+      border-color: rgba(100,160,255,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas"></canvas>
+  <canvas id="hud"></canvas>
+
+  <div id="species-label">starling murmuration</div>
+
+  <div id="species-bar">
+    <button class="active" data-species="starling">Starling</button>
+    <button data-species="sardine">Sardine</button>
+    <button data-species="gnat">Gnat</button>
+    <button data-species="bat">Bat</button>
+    <button data-species="firefly">Firefly</button>
+    <button data-species="moth">Moth</button>
+    <button data-species="locust">Locust</button>
+    <button data-species="jellyfish">Jellyfish</button>
+  </div>
+
+  <div id="info">
+    <div>Drag to rotate &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; GUI → top right</div>
+    <div>
+      Reynolds 1987 &nbsp;·&nbsp;
+      <a href="https://www.pnas.org/doi/10.1073/pnas.1005766107" target="_blank">Cavagna et al. 2010</a>
+      &nbsp;·&nbsp;
+      <a href="https://doi.org/10.1103/PhysRevLett.75.1226" target="_blank">Vicsek 1995</a>
+    </div>
+    <div style="margin-top:4px; color:rgba(255,255,255,0.2); font-style:italic">
+      No bird knows the shape of the flock. Yet the flock has a shape.
+    </div>
+  </div>
+
+  <script>
+    // Quick-switch species bar
+    const label   = document.getElementById('species-label');
+    const buttons = document.querySelectorAll('#species-bar button');
+    const NAMES   = {
+      starling: 'Starling Murmuration',
+      sardine:  'Sardine Ball',
+      gnat:     'Gnat Cloud',
+      bat:      'Bat Emergence',
+      firefly:  'Firefly Dance',
+      moth:     'Moth Swarm',
+      locust:   'Locust Plague',
+      jellyfish:'Jellyfish Pulse',
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const species = btn.dataset.species;
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        label.textContent = NAMES[species] || species;
+        window.location.hash = species;
+        // main.js listens for loadSpecies via URL hash changes
+        window.__loadSpecies && window.__loadSpecies(species);
+      });
+    });
+  </script>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

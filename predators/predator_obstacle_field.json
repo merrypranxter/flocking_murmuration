@@ -1,0 +1,18 @@
+{
+  "id": "obstacle_field",
+  "name": "Obstacle Field",
+  "description": "Static array of cylindrical pillars. Boids navigate around obstacles using flow-around vortex street avoidance. Produces territory formation and path memory.",
+
+  "obstacles": [
+    { "center": [ 0.2,  0.0,  0.0],  "radius": 0.05, "height": 0.5 },
+    { "center": [-0.2,  0.0,  0.2],  "radius": 0.05, "height": 0.5 },
+    { "center": [ 0.0,  0.0, -0.2],  "radius": 0.07, "height": 0.4 },
+    { "center": [ 0.3,  0.0, -0.15], "radius": 0.04, "height": 0.6 },
+    { "center": [-0.1,  0.0,  0.35], "radius": 0.06, "height": 0.3 }
+  ],
+
+  "avoidanceRadius": 0.12,
+  "avoidanceWeight": 3.5,
+
+  "notes": "Each boid receives an additional avoidance force from every obstacle within u_obstacleRadius. The force is radially outward from the obstacle center, scaled as 1/dist^2. Large obstacles produce Von Karman vortex street patterns in the downstream boid flow — a direct analog of fluid dynamics in a biological substrate."
+}

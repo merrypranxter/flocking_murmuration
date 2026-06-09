@@ -1,0 +1,20 @@
+{
+  "id": "chaotic_attractor",
+  "name": "Chaotic Attractor",
+  "description": "Virtual predator following a Lorenz strange attractor trajectory. Never repeats its path. Produces continuous low-level flock distortion rather than a decisive split.",
+  "shader": "shaders/update_predator_chaotic.frag",
+
+  "lorenzSigma": 10.0,
+  "lorenzRho":   28.0,
+  "lorenzBeta":  2.667,
+  "lorenzScale": 0.015,
+  "lorenzSpeed": 1.0,
+
+  "preyResponse": {
+    "panicRadius":  0.18,
+    "panicWeight":  3.0,
+    "description": "Flock undergoes continuous micro-distortions tracing the butterfly shape of the attractor's influence region. The flock never achieves full coherence while this predator is active — a sustained phase below the critical transition point."
+  },
+
+  "notes": "The Lorenz attractor (σ=10, ρ=28, β=8/3) is the canonical example of a strange attractor with butterfly geometry. Using it as a predator path creates a system-within-a-system: the chaotic predator drives the near-critical flock through a sequence of micro-distortions that never repeat. This is a direct visual analog of the Vicsek phase transition being perpetually suppressed below the ordered phase."
+}
