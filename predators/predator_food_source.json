@@ -1,0 +1,19 @@
+{
+  "id": "food_source",
+  "name": "Food Source / Radial Attractor",
+  "description": "A radial food attractor with resource depletion. Produces territory formation: early arrivers deplete the source, triggering aggressive competition and resource partitioning.",
+
+  "position": [0.0, 0.0, 0.0],
+  "attractionRadius": 0.40,
+  "attractionWeight": 2.0,
+  "competitionRadius": 0.08,
+  "competitionWeight": 2.5,
+  "depletionRate":     0.002,
+  "regenerationRate":  0.0005,
+
+  "preyResponse": {
+    "description": "Boids within attractionRadius are attracted; within competitionRadius they repel each other (resource competition). As the source depletes, the flock re-disperses and eventually reforms around a regenerated source or drifts to find a new one. This produces boom-bust aggregation cycles."
+  },
+
+  "notes": "Food aggregations differ from predator-driven responses: instead of panic, they produce radial inflow and internal competition. The balance between attraction weight and competition weight determines whether the aggregation forms a tight cluster (competition-dominated) or a diffuse inflow (attraction-dominated)."
+}

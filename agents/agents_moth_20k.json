@@ -1,0 +1,36 @@
+{
+  "species": "moth",
+  "agentCount": 20480,
+  "description": "Moth swarm — 20k agents, positive phototaxis, spiral orbit around lamp, fatigue-driven inward decay (Miller's spiral).",
+  "reference": "Hsiao 1972 — Positive phototaxis and the Miller's Spiral; Baker & Woiwod 1979",
+
+  "separationRadius": 0.030,
+  "alignRadius":      0.050,
+  "cohesionRadius":   0.080,
+  "separationWeight": 1.5,
+  "alignWeight":      0.4,
+  "cohesionWeight":   0.5,
+  "maxSpeed":         0.20,
+  "minSpeed":         0.05,
+  "maxForce":         1.2,
+  "boundaryRadius":   0.80,
+  "boundaryWeight":   2.5,
+
+  "speciesUniforms": {
+    "u_lampPos":          [0.0, 0.1, 0.0],
+    "u_lampOrbitRadius":  0.08,
+    "u_lampOrbitWeight":  2.0,
+    "u_lampSpiralDecay":  0.01
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   2.5,
+    "opacity":     0.70,
+    "color":       [0.55, 0.45, 0.30],
+    "trailLength": 0.03,
+    "background":  "night"
+  },
+
+  "notes": "Moths use a fixed-angle flight relative to the moon for navigation (transverse orientation). Artificial lamps confuse this: the moth spirals inward (Miller's spiral) as it tries to maintain a constant angle to a near-field source, eventually hitting the lamp or exhausting itself."
+}

@@ -1,0 +1,23 @@
+{
+  "id": "hawk_strike",
+  "name": "Hawk Strike",
+  "description": "Single Buteo hawk circling, then stooping. Produces schismogenesis: flock splits along the attack vector, leaving a void corridor.",
+  "shader": "shaders/update_predator_hawk.frag",
+
+  "maxSpeed":      1.5,
+  "maxForce":      6.0,
+  "captureRadius": 0.05,
+  "strikeAngle":   0.4,
+
+  "initialPosition": [0.0, 0.5, 0.0],
+  "initialState":    0,
+
+  "preyResponse": {
+    "panicRadius":    0.25,
+    "panicWeight":    4.0,
+    "schismogenesis": true,
+    "description": "Boids within 0.25 WU flee radially; the directionality creates a split wave propagating outward at super-individual speed."
+  },
+
+  "notes": "Schismogenesis is the splitting response: the flock does not all flee the same direction but cleaves along the hawk's approach axis. This is thought to reduce individual capture probability (confusion effect) and is reproduced in the starling shader via a directional evasion bias."
+}

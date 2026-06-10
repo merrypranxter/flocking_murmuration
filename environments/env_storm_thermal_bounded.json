@@ -1,0 +1,33 @@
+{
+  "id": "storm_thermal_bounded",
+  "name": "Storm — Strong Gusts, Turbulence, Bounded Canyon",
+  "description": "Storm conditions: high-velocity gusts with turbulent fluctuations, bounding walls (canyon or building geometry), reduced visibility. Tests flock resilience.",
+
+  "wind": {
+    "enabled": true,
+    "baseVelocity": [0.15, 0.02, 0.05],
+    "turbulence": {
+      "enabled":    true,
+      "octaves":    3,
+      "lacunarity": 2.0,
+      "amplitude":  0.12,
+      "frequency":  1.5
+    },
+    "gustFrequency": 1.2,
+    "gustStrength":  0.18
+  },
+
+  "thermals": [],
+
+  "boundary": {
+    "type":    "box",
+    "min":     [-0.6, -0.5, -0.6],
+    "max":     [ 0.6,  0.5,  0.6],
+    "padding": 0.05
+  },
+
+  "skyColor": [0.02, 0.02, 0.04],
+  "horizonColor": [0.06, 0.06, 0.06],
+
+  "notes": "Box boundary models a canyon, urban canyon, or enclosed space. Boids bounce off walls (soft repulsion). High turbulence tests the flock's ability to maintain coherence under extreme perturbation — measuring the critical transition between ordered and disordered phases."
+}

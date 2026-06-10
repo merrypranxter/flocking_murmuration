@@ -1,0 +1,39 @@
+{
+  "id": "underwater_current_bounded",
+  "name": "Underwater — Ambient Current, Thermocline, Bounded Basin",
+  "description": "Open-ocean conditions for fish (sardine, jellyfish): ambient horizontal current, vertical thermocline density gradient, bounded sphere (ocean volume).",
+
+  "current": {
+    "enabled":   true,
+    "direction": [0.03, 0.0, 0.01],
+    "turbulence": {
+      "enabled":    true,
+      "octaves":    2,
+      "amplitude":  0.02,
+      "frequency":  0.8
+    }
+  },
+
+  "thermocline": {
+    "depth":         -0.3,
+    "sharpness":     0.1,
+    "temperatureDrop": 8.0,
+    "densityIncrease": 0.01
+  },
+
+  "lightAttenuation": {
+    "enabled": true,
+    "halfDepth": 0.3,
+    "color":    [0.2, 0.5, 0.8]
+  },
+
+  "boundary": {
+    "type":   "sphere",
+    "radius": 0.85
+  },
+
+  "skyColor": [0.03, 0.07, 0.15],
+  "horizonColor": [0.05, 0.12, 0.25],
+
+  "notes": "The thermocline acts as a preferred-depth layer for both sardines and jellyfish. Above it: warmer, less dense, oxygen-rich but food-poor. Below it: colder, denser, oxygen-limited. Both species aggregate near it, producing the characteristic depth-stratified bloom shapes observed by underwater cameras."
+}

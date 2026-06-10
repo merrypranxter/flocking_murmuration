@@ -1,0 +1,34 @@
+{
+  "species": "starling",
+  "agentCount": 100352,
+  "description": "Starling murmuration — 100k agents, topological neighbor tracking, scale-free correlations, hawk evasion. Reynolds' classic plus Cavagna's topological distance model.",
+  "reference": "Cavagna et al. 2010 (PNAS) — Scale-Free Correlations in Starling Flocks",
+
+  "separationRadius": 0.04,
+  "alignRadius":      0.10,
+  "cohesionRadius":   0.12,
+  "separationWeight": 1.5,
+  "alignWeight":      1.0,
+  "cohesionWeight":   1.0,
+  "maxSpeed":         0.40,
+  "minSpeed":         0.15,
+  "maxForce":         2.0,
+  "predatorWeight":   4.0,
+  "predatorRadius":   0.25,
+  "boundaryRadius":   0.90,
+  "boundaryWeight":   3.0,
+
+  "speciesUniforms": {
+    "u_topoNeighbors": 7.0
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   3.0,
+    "opacity":     0.85,
+    "color":       [0.75, 0.80, 0.90],
+    "trailLength": 0.04
+  },
+
+  "notes": "Topological neighborhood: each bird tracks its 6-7 nearest regardless of metric distance. This is what produces scale-free correlations — the correlation length grows with flock size N, not with density."
+}

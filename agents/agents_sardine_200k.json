@@ -1,0 +1,36 @@
+{
+  "species": "sardine",
+  "agentCount": 196608,
+  "description": "Sardine school / bait ball — 200k agents, tight spherical packing, pressure-wave coherence, shark evasion with bait-ball reformation.",
+  "reference": "Parrish & Viscido 2005; Lukeman, Li & Edelstein-Keshet 2010",
+
+  "separationRadius": 0.025,
+  "alignRadius":      0.06,
+  "cohesionRadius":   0.10,
+  "separationWeight": 2.0,
+  "alignWeight":      1.2,
+  "cohesionWeight":   1.5,
+  "maxSpeed":         0.35,
+  "minSpeed":         0.10,
+  "maxForce":         2.5,
+  "predatorWeight":   5.0,
+  "predatorRadius":   0.30,
+  "boundaryRadius":   0.85,
+  "boundaryWeight":   2.5,
+
+  "speciesUniforms": {
+    "u_ballCenterWeight": 0.8,
+    "u_pressureWave":     0.0,
+    "u_schoolCentroid":   [0.0, 0.0, 0.0]
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   2.5,
+    "opacity":     0.80,
+    "color":       [0.6, 0.75, 0.85],
+    "trailLength": 0.03
+  },
+
+  "notes": "Sardines maintain near-crystalline packing density. The bait-ball forms when a shark threatens: outer fish contract inward while inner fish push out, creating standing pressure waves. After a strike the ball splits and reforms."
+}

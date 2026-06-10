@@ -1,0 +1,39 @@
+{
+  "species": "firefly",
+  "agentCount": 10240,
+  "description": "Firefly synchronous flash — 10k agents, Kuramoto phase-coupled oscillators, traveling light waves, slow hover with attractor convergence.",
+  "reference": "Buck & Buck 1976; Mirollo & Strogatz 1990; Smith 1935",
+
+  "separationRadius": 0.040,
+  "alignRadius":      0.060,
+  "cohesionRadius":   0.100,
+  "separationWeight": 1.0,
+  "alignWeight":      0.3,
+  "cohesionWeight":   0.5,
+  "maxSpeed":         0.08,
+  "minSpeed":         0.00,
+  "maxForce":         0.5,
+  "boundaryRadius":   0.60,
+  "boundaryWeight":   3.0,
+
+  "speciesUniforms": {
+    "u_kCoupling":     0.8,
+    "u_naturalFreq":   1.0,
+    "u_flashWidth":    0.05,
+    "u_phaseRadius":   0.12,
+    "u_attractorPos":  [0.0, 0.0, 0.0],
+    "u_attractorWeight": 0.2
+  },
+
+  "renderDefaults": {
+    "mode":             "points",
+    "pointSize":         4.0,
+    "opacity":           1.0,
+    "color":             [0.9, 1.0, 0.4],
+    "flashEmissive":     [1.0, 0.9, 0.2],
+    "trailLength":       0.02,
+    "background":        "night"
+  },
+
+  "notes": "Photinus carolinus (Great Smoky Mountains) is one of very few firefly species that achieve synchrony. The Kuramoto model with coupling constant K≈0.8 and natural frequency 1 Hz reproduces observed sync onset at ~50 individuals within interaction radius. Flash visible 20ms around phase=0."
+}

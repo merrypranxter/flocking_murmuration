@@ -1,0 +1,38 @@
+{
+  "id": "wind_thermal_open",
+  "name": "Windy Day — Thermal + Crosswind, Open Sky",
+  "description": "Moderate crosswind with thermals: wind shear at 200m altitude produces vertical velocity gradient. Flock must balance cohesion against wind dispersal.",
+
+  "wind": {
+    "enabled": true,
+    "baseVelocity": [0.06, 0.0, 0.02],
+    "shear": {
+      "enabled": true,
+      "directionVaryPerHeight": true,
+      "speedPerHeight": 0.04,
+      "referenceHeight": 0.0
+    },
+    "gustFrequency": 0.3,
+    "gustStrength":  0.04
+  },
+
+  "thermals": [
+    {
+      "center":   [0.2, -0.5, 0.0],
+      "radius":   0.18,
+      "strength": 0.12,
+      "decay":    0.25,
+      "enabled":  true
+    }
+  ],
+
+  "boundary": {
+    "type":   "sphere",
+    "radius": 0.90
+  },
+
+  "skyColor": [0.08, 0.10, 0.16],
+  "horizonColor": [0.20, 0.18, 0.14],
+
+  "notes": "Wind shear is one of the main environmental drivers of murmuration shape. A strong horizontal wind with vertical shear causes the flock to tilt and elongate in the downwind direction. The shear uniform u_windShear is a vec3 gradient added to wind velocity as a function of y position."
+}

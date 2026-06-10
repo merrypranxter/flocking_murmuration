@@ -1,0 +1,38 @@
+{
+  "species": "locust",
+  "agentCount": 81920,
+  "description": "Locust plague — 80k agents, density-dependent phase shift from solitary (solitarious) to gregarious, aligned marching swarm.",
+  "reference": "Buhl et al. 2006 (Science) — From Disorder to Order in Marching Locusts; Uvarov 1966",
+
+  "separationRadius": 0.030,
+  "alignRadius":      0.080,
+  "cohesionRadius":   0.100,
+  "separationWeight": 3.0,
+  "alignWeight":      0.0,
+  "cohesionWeight":   0.0,
+  "maxSpeed":         0.30,
+  "minSpeed":         0.05,
+  "maxForce":         2.0,
+  "boundaryRadius":   0.90,
+  "boundaryWeight":   2.0,
+
+  "speciesUniforms": {
+    "u_gregariousThreshold": 8.0,
+    "u_phaseTransitionRate": 0.05,
+    "u_marchDir":            [1.0, 0.0, 0.0],
+    "u_marchWeight":         1.0,
+    "u_groundY":             -0.4,
+    "u_groundWeight":        1.5
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   2.5,
+    "opacity":     0.80,
+    "color":       [0.6, 0.55, 0.2],
+    "trailLength": 0.04,
+    "background":  "day"
+  },
+
+  "notes": "The phase transition in Schistocerca gregaria is one of the most dramatic collective phenomena in nature. Below ~25/m² individuals avoid each other; above this density they align and march as one. The transition is hysteretic — an analogy to first-order magnetic phase transitions. Buhl et al. 2006 reproduced this computationally with the Vicsek model."
+}

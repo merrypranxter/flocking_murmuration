@@ -1,0 +1,35 @@
+{
+  "species": "gnat",
+  "agentCount": 49152,
+  "description": "Gnat cloud — 50k agents, Brownian jitter + weak cohesion = hover swarm. Mating swarm model: cloud shape is stable but individual paths are random.",
+  "reference": "Okubo 1986; Okubo & Chiang 1974 — Gnat swarm dynamics",
+
+  "separationRadius": 0.020,
+  "alignRadius":      0.040,
+  "cohesionRadius":   0.080,
+  "separationWeight": 1.2,
+  "alignWeight":      0.2,
+  "cohesionWeight":   0.6,
+  "maxSpeed":         0.25,
+  "minSpeed":         0.00,
+  "maxForce":         1.5,
+  "boundaryRadius":   0.70,
+  "boundaryWeight":   3.0,
+
+  "speciesUniforms": {
+    "u_noiseStrength":  0.8,
+    "u_attractorWeight": 1.0,
+    "u_swarmAnchor":    [0.0, 0.0, 0.0],
+    "u_anchorWeight":   0.5
+  },
+
+  "renderDefaults": {
+    "mode":        "points",
+    "pointSize":   2.0,
+    "opacity":     0.60,
+    "color":       [0.4, 0.5, 0.4],
+    "trailLength": 0.01
+  },
+
+  "notes": "Individual gnats perform 3D random walks (Brownian motion with persistence). The cloud as a whole is held by a quadratic well anchored to a landmark (e.g. post, thermal). Mating males exhibit faster mean-reversion to the anchor than females."
+}

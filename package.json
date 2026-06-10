@@ -1,0 +1,46 @@
+{
+  "name": "flocking-murmuration",
+  "version": "0.1.0",
+  "description": "GPU-accelerated flocking simulation \u2014 starlings, sardines, gnats, bats, fireflies, moths, locusts, jellyfish. GPGPU ping-pong FBOs, spatial hash, 100k+ agents at 60fps.",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "boids",
+    "flocking",
+    "murmuration",
+    "gpgpu",
+    "glsl",
+    "three.js",
+    "particle-system",
+    "webgl",
+    "webgl2",
+    "simulation",
+    "emergence",
+    "starling",
+    "reynolds",
+    "vicsek",
+    "spatial-hash"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.161.0",
+    "dat.gui": "^0.7.9"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-glsl": "^1.3.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "Safari >= 17"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
